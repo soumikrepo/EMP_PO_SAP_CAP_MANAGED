@@ -1,0 +1,41 @@
+_schema-version: '3.1'
+ID: EMP_PO_SAP_CAP_MANAGED
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: EMP_PO_SAP_CAP_MANAGED-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: EMP_PO_SAP_CAP_MANAGED-db
+
+  - name: EMP_PO_SAP_CAP_MANAGED-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: EMP_PO_SAP_CAP_MANAGED-db
+
+resources:
+  - name: EMP_PO_SAP_CAP_MANAGED-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
