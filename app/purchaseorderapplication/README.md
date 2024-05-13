@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon May 06 2024 11:34:00 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Mon May 13 2024 03:17:17 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.13.3|
 |**Generation Platform**<br>SAP Business Application Studio|
@@ -10,7 +10,7 @@
 |**Service URL**<br>http://localhost:4004/EmployeeSRV/
 |**Module Name**<br>purchaseorderapplication|
 |**Application Title**<br>Manage Purchase Order|
-|**Namespace**<br>soumikapp|
+|**Namespace**<br>soumik.app|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.123.1|
 |**Enable Code Assist Libraries**<br>False|

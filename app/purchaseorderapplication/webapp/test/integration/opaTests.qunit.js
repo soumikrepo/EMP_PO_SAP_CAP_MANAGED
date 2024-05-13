@@ -1,16 +1,16 @@
 sap.ui.require(
     [
         'sap/fe/test/JourneyRunner',
-        'soumikapp/purchaseorderapplication/test/integration/FirstJourney',
-		'soumikapp/purchaseorderapplication/test/integration/pages/purchaseorderList',
-		'soumikapp/purchaseorderapplication/test/integration/pages/purchaseorderObjectPage',
-		'soumikapp/purchaseorderapplication/test/integration/pages/poitemsObjectPage'
+        'soumik/app/purchaseorderapplication/test/integration/FirstJourney',
+		'soumik/app/purchaseorderapplication/test/integration/pages/purchaseorderList',
+		'soumik/app/purchaseorderapplication/test/integration/pages/purchaseorderObjectPage',
+		'soumik/app/purchaseorderapplication/test/integration/pages/poitemsObjectPage'
     ],
     function(JourneyRunner, opaJourney, purchaseorderList, purchaseorderObjectPage, poitemsObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
-            launchUrl: sap.ui.require.toUrl('soumikapp/purchaseorderapplication') + '/index.html'
+            launchUrl: sap.ui.require.toUrl('soumik/app/purchaseorderapplication') + '/index.html'
         });
 
        

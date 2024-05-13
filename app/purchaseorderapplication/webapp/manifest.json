@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "soumikapp.purchaseorderapplication",
+    "id": "soumik.app.purchaseorderapplication",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.13.3",
-      "toolsId": "b8975b6e-ab45-4e99-9b00-0a208540faba"
+      "toolsId": "f0149a3e-09f7-427f-8473-d56d03fdb657"
     },
     "dataSources": {
       "mainService": {
@@ -75,7 +75,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "soumikapp.purchaseorderapplication.i18n.i18n"
+          "bundleName": "soumik.app.purchaseorderapplication.i18n.i18n"
         }
       },
       "": {
@@ -97,6 +97,7 @@
       "css": []
     },
     "routing": {
+      "config": {},
       "routes": [
         {
           "pattern": ":?query:",
@@ -136,8 +137,7 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              },
-              "initialLoad": "Enabled"
+              }
             }
           }
         },
@@ -176,5 +176,9 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "managed-router"
   }
 }

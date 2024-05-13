@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'soumikapp.purchaseorderapplication',
+            appId: 'soumik.app.purchaseorderapplication',
             componentId: 'purchaseorderList',
             contextPath: '/purchaseorder'
         },

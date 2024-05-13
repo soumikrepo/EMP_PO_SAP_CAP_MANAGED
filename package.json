@@ -1,57 +1,66 @@
 {
-  "name": "EMP_PO_SAP_CAP_MANAGED",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^7",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-    "express": "^4",
-    "@sap/cds-hana": "^2"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7"
-  },
-  "scripts": {
-    "start": "cds-serve"
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "[development]": {
-          "kind": "sqlite"
-        },
-        "[production]": {
-          "kind": "hana"
-        }
-      },
-      "[production]": {
-        "auth": "xsuaa"
-      },
-      "[development]": {
-        "auth": {
-          "kind": "mocked",
-          "users": {
-            "soumiksaha@123": {
-              "password": "password",
-              "ID": "soumiksaha@123",
-              "roles": [
-                "Admin"
-              ]
+    "name": "EMP_PO_SAP_CAP_MANAGED",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+        "express": "^4"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "^1.120.9",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-purchaseorderapplication": "cds watch --open purchaseorderapplication/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy EMP_PO_SAP_CAP_MANAGED --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "[development]": {
+                    "kind": "sqlite"
+                },
+                "[production]": {
+                    "kind": "hana"
+                }
             },
-            "chandansaha@123": {
-              "password": "password",
-              "ID": "chandansaha@123",
-              "roles": [
-                "USER"
-              ]
+            "[production]": {
+                "auth": "xsuaa"
+            },
+            "[development]": {
+                "auth": {
+                    "kind": "mocked",
+                    "users": {
+                        "soumiksaha@123": {
+                            "password": "password",
+                            "ID": "soumiksaha@123",
+                            "roles": [
+                                "Admin"
+                            ]
+                        },
+                        "chandansaha@123": {
+                            "password": "password",
+                            "ID": "chandansaha@123",
+                            "roles": [
+                                "USER"
+                            ]
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  }
+    },
+    "sapux": [
+        "app/purchaseorderapplication"
+    ]
 }
